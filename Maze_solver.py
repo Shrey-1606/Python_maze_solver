@@ -1,3 +1,7 @@
+import re
+from colorama import Fore,Style,init
+import time 
+
 #Converting maze to list
 maze = open("maze_map.txt","r")
 maze_list=[]
@@ -95,23 +99,57 @@ for i2 in maze_copy:
             if path.index(ele1) < len(path)-1:
                 pos=path.index(ele1)+1
                 if path[pos] == n_n: 
-                    i2[index_list]="↑"
+                    i2[index_list]=f"{Fore.GREEN}↑"
                 elif path[pos] == n_e: 
-                    i2[index_list]="→"
+                    i2[index_list]=f"{Fore.GREEN}→"
                 elif path[pos] == n_s: 
-                    i2[index_list]="↓"
+                    i2[index_list]=f"{Fore.GREEN}↓"
                 elif path[pos] == n_w: 
-                    i2[index_list]="←"
+                    i2[index_list]=f"{Fore.GREEN}←{Style.RESET_ALL}"
 
-                
+#True length checking function 
+def visible_len(text):
+    return len(re.sub(r'\x1b\[[0-9;]*m', '', text))  
+
+#Typewriting animation function
+def typ(a): 
+    for char in a: 
+        print(char,end="", flush=True)
+        time.sleep(0.00001)
+    print()
+
+typ("The given maze is: ")
+print()
 #Printing maze soln in a cleaner format       
 for line in maze_list: 
     for index,ele in enumerate(line):
-        if len(ele) == 1 : 
-            line[index]=f"   {ele}"
-        elif len(ele) == 2: 
-            line[index]=f"  {ele}"
+        if ele == '*': 
+            line[index]=f'{Fore.RED}   *{Style.RESET_ALL}'
         else: 
-            line[index]=f" {ele}"
-    print("".join(line))
-print(maze_list)
+            vis_len=visible_len(ele)
+            if vis_len == 1:
+                line[index] = f"   {ele}"
+            elif vis_len == 2:
+                line[index] = f"  {ele}"
+            else:
+                line[index] = f" {ele}"
+    typ("".join(line))
+
+print()
+print("The solution to the maze is: ")
+print()
+#Printing maze soln in a cleaner format       
+for line in maze_copy: 
+    for index,ele in enumerate(line):
+        if ele == '*': 
+            line[index]=f'{Fore.RED}   *{Style.RESET_ALL}'
+        else: 
+            vis_len=visible_len(ele)
+            if vis_len == 1:
+                line[index] = f"   {ele}"
+            elif vis_len == 2:
+                line[index] = f"  {ele}"
+            else:
+                line[index] = f" {ele}"
+    typ("".join(line))
+
