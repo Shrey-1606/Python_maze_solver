@@ -22,8 +22,8 @@ Example of output:
 Limitations: 
 
 1. Only works with the format given
-2. Needs a unique solution, multiple solutions are not yet supported
-3. Works in a single priority order of North, East, South, West
+2. Needs a unique solution, multiple solution maze will get any single solution.
+3. Works in a single priority order of North, East, South, West.
 
 Bug: 
 
