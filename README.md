@@ -4,7 +4,8 @@ This is a basic level python based maze solver, it has a certain format of maze_
 
 Example of input: 
 
-<img width="648" height="387" alt="image" src="https://github.com/user-attachments/assets/3beb3557-c82f-4b68-8a7b-9852f0829a23" />
+
+<img width="768" height="449" alt="image" src="https://github.com/user-attachments/assets/ffa3f3c0-0437-45f2-a21f-eb63bf64189c" />
 
 
 What special about this code? :
@@ -15,8 +16,8 @@ The output looks fancy and visually understandable of how maze_solver solved it,
 
 Example of output:
 
-<img width="653" height="377" alt="image" src="https://github.com/user-attachments/assets/53ff89ec-6ecf-499e-8a79-b840243b3af8" />
 
+<img width="651" height="862" alt="image" src="https://github.com/user-attachments/assets/ebcf2eed-c310-47af-80ec-d58879025d56" />
 
 
 Limitations: 
@@ -28,6 +29,10 @@ Limitations:
 Bug: 
 
 1. The direction of 2nd last element to the goal is not shown in output for some reason. Working around to fix this.
+
+Additional Goals: 
+
+-To recreate this whole project by recursion method hence reducing the coding lines. An entire new approach is required.
  
 
                                                            
